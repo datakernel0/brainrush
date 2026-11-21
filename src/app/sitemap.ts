@@ -4,7 +4,7 @@ import { games } from "@/data/games";
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = process.env.NEXT_PUBLIC_SITE_URL || "https://brainrush.example";
+  const base = process.env.NEXT_PUBLIC_SITE_URL || "https://brainrush-alpha.vercel.app";
   const routes = [
     "",
     "games",
