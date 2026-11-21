@@ -1,0 +1,2 @@
+# Add the exact authorized seller record supplied by your advertising provider after approval.
+# Do not publish invented publisher IDs or seller declarations.

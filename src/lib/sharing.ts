@@ -1,0 +1,2 @@
+export async function shareResult(text:string,url?:string){const full=url?`${text}\n${url}`:text;try{if(typeof navigator!=="undefined"&&navigator.share){await navigator.share({title:"BrainRush challenge",text,url});return "shared" as const}}catch(e){if(e instanceof Error&&e.name==="AbortError")return "cancelled" as const}try{await navigator.clipboard.writeText(full);return "copied" as const}catch{return "unavailable" as const}}
+export async function copyText(text:string){try{await navigator.clipboard.writeText(text);return true}catch{return false}}
