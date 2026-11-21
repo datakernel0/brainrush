@@ -1269,8 +1269,14 @@ select:focus-visible {
 }
 
 /* Ad Slot */
-.ad-slot {
-  display: none;
+.ad-slot-wrapper {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 90px;
+  text-align: center;
 }
 
 /* Content & Information Cards */

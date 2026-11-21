@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+
 export default function AdSlot({
   placement = "content",
   className = "",
@@ -5,18 +9,41 @@ export default function AdSlot({
   placement?: string;
   className?: string;
 }) {
-  const scriptUrl = process.env.NEXT_PUBLIC_ADSTERRA_SCRIPT_URL;
-  if (!scriptUrl) {
-    return null;
-  }
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    // Clear any previous injections on route transitions
+    el.innerHTML = "";
+
+    const adDiv = document.createElement("div");
+    adDiv.id = "container-81043a0120cdcdf913ef29f0d187248e";
+
+    const script = document.createElement("script");
+    script.async = true;
+    script.setAttribute("data-cfasync", "false");
+    script.src = "https://bauval.org/21/81043a0120cdcdf913ef29f0d187248e";
+
+    el.appendChild(adDiv);
+    el.appendChild(script);
+  }, []);
 
   return (
     <div
-      className={`ad-slot ${className}`}
-      aria-label="Advertisement"
+      ref={containerRef}
+      className={`ad-slot-wrapper ${className}`}
       data-ad-placement={placement}
-    >
-      <span className="ad-label">ADVERTISEMENT</span>
-    </div>
+      style={{
+        margin: "20px auto",
+        minHeight: "90px",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        width: "100%",
+        overflow: "hidden",
+      }}
+    />
   );
 }
